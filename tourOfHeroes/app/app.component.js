@@ -22,15 +22,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function AppComponent() {
                     this.title = 'Tour of Heroes';
                     this.heroes = HEROES;
-                    this.hero = {
-                        id: 1,
-                        name: 'Windstorm'
-                    };
                 }
+                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}} details!</h2>\n    <div><p>id: {{hero.id}}</p></div>\n    <div>\n      <label for=\"hero-name\">name: </label>\n      <div>\n        <input id=\"hero-name\" [(ngModel)]=\"hero.name\" placeholder=\"name\">\n      </div>\n    </div>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"#hero of heroes\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    ",
+                        template: "\n    <h1>{{title}}</h1>\n    <div *ngIf=\"selectedHero\">\n      <h2>{{selectedHero.name}} details!</h2>\n      <div><p>id: {{selectedHero.id}}</p></div>\n      <div>\n        <label for=\"hero-name\">name: </label>\n        <div>\n          <input id=\"hero-name\" [(ngModel)]=\"selectedHero.name\" placeholder=\"name\">\n        </div>\n      </div>\n    </div>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"#hero of heroes\" (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    ",
                         styles: ["\n    .selected {\n      background-color: #CFD8DC !important;\n      color: white;\n    }\n    .heroes {\n      margin: 0 0 2em 0;\n      list-style-type: none;\n      padding: 0;\n      width: 10em;\n    }\n    .heroes li {\n      cursor: pointer;\n      position: relative;\n      left: 0;\n      background-color: #EEE;\n      margin: 0.5em;\n      padding: 0.3em 0;\n      height: 1.6em;\n      border-radius: 4px;\n    }\n    .heroes li.selected:hover {\n      background-color: #BBD8DC !important;\n      color: white;\n    }\n    .heroes li:hover {\n      color: #607D8B;\n      background-color: #DDD;\n      left: 0.1em;\n    }\n    .heroes .text {\n      position: relative;\n      top: -3px;\n    }\n    .heroes .badge {\n      display: inline-block;\n      font-size: small;\n      color: white;\n      padding: 0.8em 0.7em 0;\n      background-color: #607D8B;\n      line-height: 1em;\n      position: relative;\n      left: -1px;\n      top: -4px;\n      height: 1.8em;\n      margin-right: 0.8em;\n      border-radius: 4px 0 0 4px;\n    }\n  "]
                     }), 
                     __metadata('design:paramtypes', [])

@@ -9,17 +9,19 @@ interface Hero {
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{hero.name}} details!</h2>
-    <div><p>id: {{hero.id}}</p></div>
-    <div>
-      <label for="hero-name">name: </label>
+    <div *ngIf="selectedHero">
+      <h2>{{selectedHero.name}} details!</h2>
+      <div><p>id: {{selectedHero.id}}</p></div>
       <div>
-        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+        <label for="hero-name">name: </label>
+        <div>
+          <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+        </div>
       </div>
     </div>
     <h2>My Heroes</h2>
     <ul class="heroes">
-      <li *ngFor="#hero of heroes">
+      <li *ngFor="#hero of heroes" (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
     </ul>
@@ -76,12 +78,11 @@ interface Hero {
 })
 
 export class AppComponent {
-  public title = 'Tour of Heroes';
-  public heroes = HEROES;
-  public hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  }
+  title = 'Tour of Heroes';
+  heroes = HEROES;
+  selectedHero: Hero;
+
+  onSelect(hero: Hero) { this.selectedHero = hero; }
 }
 
 var HEROES: Hero[] = [
