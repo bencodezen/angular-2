@@ -29,7 +29,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}} details!</h2>\n    <div><p>id: {{hero.id}}</p></div>\n    <div><p>name: {{hero.name}}</p></div>\n    "
+                        template: "\n    <h1>{{title}}</h1>\n    <h2>{{hero.name}} details!</h2>\n    <div><p>id: {{hero.id}}</p></div>\n    <div>\n      <label for=\"hero-name\">name: </label>\n      <div>\n        <input id=\"hero-name\" [(ngModel)]=\"hero.name\" placeholder=\"name\">\n      </div>\n    </div>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
