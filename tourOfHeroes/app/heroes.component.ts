@@ -67,12 +67,10 @@ import {HeroService} from './hero.service';
       border-radius: 4px 0 0 4px;
     }
   `],
-  directives: [HeroDetailComponent],
-  providers: [HeroService]
+  directives: [HeroDetailComponent]
 })
 
 export class HeroesComponent implements OnInit {
-  title = 'Tour of Heroes';
   heroes: Hero[];
   selectedHero: Hero;
 
