@@ -5,6 +5,6 @@ import {Injectable} from 'angular2/core';
 
 export class HeroService {
   getHeroes() {
-    return HEROES;
+    return Promise.resolve(HEROES);
   }
 }
