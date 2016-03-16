@@ -11,7 +11,7 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, hero_detail_component_1, hero_service_1;
-    var AppComponent;
+    var HeroesComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -24,33 +24,33 @@ System.register(['angular2/core', './hero-detail.component', './hero.service'], 
                 hero_service_1 = hero_service_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent(_heroService) {
+            HeroesComponent = (function () {
+                function HeroesComponent(_heroService) {
                     this._heroService = _heroService;
                     this.title = 'Tour of Heroes';
                 }
-                AppComponent.prototype.getHeroes = function () {
+                HeroesComponent.prototype.getHeroes = function () {
                     var _this = this;
                     this._heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
                 };
-                AppComponent.prototype.ngOnInit = function () {
+                HeroesComponent.prototype.ngOnInit = function () {
                     this.getHeroes();
                 };
-                AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
-                AppComponent = __decorate([
+                HeroesComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
+                HeroesComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
+                        selector: 'my-heroes',
                         template: "\n    <h1>{{title}}</h1>\n    <h2>My Heroes</h2>\n    <ul class=\"heroes\">\n      <li *ngFor=\"#hero of heroes\"\n          [class.selected] = \"hero === selectedHero\"\n          (click)=\"onSelect(hero)\">\n        <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n      </li>\n    </ul>\n    <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n    ",
                         styles: ["\n    .selected {\n      background-color: #CFD8DC !important;\n      color: white;\n    }\n    .heroes {\n      margin: 0 0 2em 0;\n      list-style-type: none;\n      padding: 0;\n      width: 10em;\n    }\n    .heroes li {\n      cursor: pointer;\n      position: relative;\n      left: 0;\n      background-color: #EEE;\n      margin: 0.5em;\n      padding: 0.3em 0;\n      height: 1.6em;\n      border-radius: 4px;\n    }\n    .heroes li.selected:hover {\n      background-color: #BBD8DC !important;\n      color: white;\n    }\n    .heroes li:hover {\n      color: #607D8B;\n      background-color: #DDD;\n      left: 0.1em;\n    }\n    .heroes .text {\n      position: relative;\n      top: -3px;\n    }\n    .heroes .badge {\n      display: inline-block;\n      font-size: small;\n      color: white;\n      padding: 0.8em 0.7em 0;\n      background-color: #607D8B;\n      line-height: 1em;\n      position: relative;\n      left: -1px;\n      top: -4px;\n      height: 1.8em;\n      margin-right: 0.8em;\n      border-radius: 4px 0 0 4px;\n    }\n  "],
                         directives: [hero_detail_component_1.HeroDetailComponent],
                         providers: [hero_service_1.HeroService]
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService])
-                ], AppComponent);
-                return AppComponent;
+                ], HeroesComponent);
+                return HeroesComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("HeroesComponent", HeroesComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=heroes.component.js.map
